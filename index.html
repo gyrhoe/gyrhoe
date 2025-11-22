@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Xyryl Garce Creatives</title>
+  <meta name="description" content="Xyryl Garce Creatives — art portfolio and studio." />
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Playfair Display -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --pink-bg: #ed8c29; 
+      --gold: #f8c82f;
+      --orange: #ed8c29;
+      --rust: #c14929;
+      --sky: #3abbdf;
+      --deep: #455f06;
+      --cream: #ffe8cb;
+      --text: #111;
+      --card-radius: 14px;
+      --shadow: 0 14px 36px rgba(10,20,30,0.08);
+      --ease: cubic-bezier(.2,.9,.2,1);
+    }
+
+    
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Playfair Display", serif;
+      background:var(--pink-bg);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit}
+    img{display:block;max-width:100%;height:auto}
+
+   
+    .navbar{
+      background: transparent;
+      padding: .9rem 1rem;
+      position: sticky;
+      top:0;
+      z-index:1200;
+      backdrop-filter: blur(4px);
+    }
+    .brand{
+      font-weight:800;
+      color:var(--deep);
+      font-size:1.25rem;
+      letter-spacing:.6px;
+    }
+    .nav-link{ font-weight:700; color:rgba(0,0,0,.75) !important }
+    .nav-link:hover{ color:var(--rust) !important; transform:translateY(-2px) }
+
+   
+    .page-wrap{
+      max-width:1200px;
+      margin: 0 auto;
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+      box-shadow: 0 30px 80px rgba(0,0,0,0.06);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-top: 28px;
+      margin-bottom: 28px;
+    }
+
+
+    .hero {
+      height:520px;
+      background-image: url('images/hero.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgb(255, 243, 209);
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.28));
+    }
+    .hero-inner{ position:relative; z-index:2; text-align:center; padding: 0 1.2rem; max-width:960px }
+    .hero h1{ font-size:3rem; margin-bottom:.5rem; text-shadow: 0 10px 30px rgba(0,0,0,0.35) }
+    .hero p.lead{ font-size:1.05rem; opacity:.95 }
+
+   
+    .sticker{ position:absolute; width:84px; filter: drop-shadow(0 10px 18px rgba(0,0,0,0.15)); }
+    .sticker.top-left{ left:24px; top:24px; transform: rotate(-8deg) }
+    .sticker.bottom-right{ right:28px; bottom:28px; transform: rotate(6deg) }
+
+    .curve-down svg, .curve-up svg{ display:block; width:100%; height:70px }
+    .curve-up svg path, .curve-down svg path{ opacity: .98 }
+
+   
+    .featured-section{ padding: 48px 28px; background: var(--cream); position: relative }
+    .polaroid{
+      background:rgb(112, 124, 7); padding:12px; border-radius:10px; box-shadow:var(--shadow);
+      display:inline-block; transform-origin:center; transition: transform .45s var(--ease), box-shadow .45s var(--ease);
+    }
+    .polaroid img{ display:block; width:100%; height:100%; object-fit:cover; border-radius:6px }
+    .polaroid-caption{ margin-top:.5rem; font-weight:600; text-align:center; color:#ee560fe3 }
+
+    
+    .tilt-left{ transform: rotate(-6deg) }
+    .tilt-right{ transform: rotate(6deg) }
+    .tilt-small-1{ transform: rotate(-8deg) }
+    .tilt-small-2{ transform: rotate(5deg) }
+    .polaroid:hover{ transform: translateY(-12px) rotate(0deg); box-shadow:0 26px 60px rgba(211, 36, 36, 0.18) }
+
+
+    .polaroid.big{ width:460px; }
+    .polaroid.small{ width:170px; padding:10px }
+    .polaroid .caption{ font-size:.95rem }
+
+
+    .btn-bounce{ animation: bounce 3s var(--ease) infinite; }
+
+   
+    .tilt-row{ padding:22px 24px; background:transparent; display:flex; justify-content:center; gap:18px; flex-wrap:wrap }
+    .tilt-row .polaroid.small{ transition: transform .45s var(--ease) }
+    .tilt-row .polaroid.small:hover{ transform: translateY(-10px) rotate(0deg) }
+
+ 
+    .carousel-img{ height:420px; object-fit:cover; border-radius:10px }
+    .carousel .carousel-indicators [data-bs-target] { background: var(--rust) }
+
+  
+    .shop-grid{ padding:32px; background:var(--pink-bg) }
+    .card-custom{ border-radius: var(--card-radius); overflow:hidden; box-shadow:var(--shadow); transition: transform .35s var(--ease), box-shadow .35s var(--ease) }
+    .card-custom img{ height:220px; object-fit:cover }
+    .card-custom:hover{ transform: translateY(-10px) scale(1.02); box-shadow: 0 26px 60px rgba(0,0,0,0.16) }
+
+   
+    .polaroid-card{ background:#ffe15b; padding:12px; border:1px solid rgba(0,0,0,0.04); border-radius:12px }
+    .polaroid-card .card-img-top{ border-radius:6px; display:block }
+
+    
+    .cta-band{ background: linear-gradient(90deg, var(--gold), var(--orange)); color:#111; padding:28px; text-align:center; margin-top:18px; border-radius:12px; margin: 32px 24px; }
+    .cta-band .btn{ border-radius:30px; padding:.6rem 1.2rem; font-weight:700 }
+
+
+    .newsletter{ display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap }
+    .newsletter input{ padding:.8rem 1rem; border-radius:8px; border:1px solid rgba(0,0,0,.08) }
+
+
+    footer.site-footer{ background:transparent; padding:36px; text-align:center; }
+
+  
+    @keyframes sway { 0%{ transform: translateX(0) } 50%{ transform: translateX(6px) } 100%{ transform: translateX(0) } }
+    @keyframes bounce { 0%{ transform: translateY(0) } 50%{ transform: translateY(-8px) } 100%{ transform: translateY(0) } }
+    .sway { animation: sway 3.6s ease-in-out infinite }
+    .bounce { animation: bounce 2.2s var(--ease) infinite }
+
+ 
+
+    @media (max-width: 992px){
+      .hero{ height:420px }
+      .hero h1{ font-size:2rem }
+      .polaroid.big{ width:360px }
+      .carousel-img{ height:300px }
+    }
+    @media (max-width: 576px){
+      .page-wrap{ border-radius:12px; margin:12px }
+      .hero{ height:320px }
+      .hero h1{ font-size:1.5rem }
+      .polaroid.small{ width:130px }
+      .carousel-img{ height:220px }
+      .polaroid.big{ width:280px }
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="page-wrap">
+
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <a class="brand navbar-brand" href="#hero">Xyryl Garce Creatives</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMain">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tiles">Shop</a></li>
+            <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <header id="hero" class="hero" role="banner" style="background-image:url('./Cover\ art.jfif')">
+      <div class="hero-inner text-center">
+        <h1>Xyryl Garce Creatives</h1>
+        <p class="lead">Designs that speak.</p>
+        <div class="mt-3">
+          <a class="btn btn-light btn-lg btn-bounce" href="#tiles">My Services</a>
+        </div>
+      </div>
+
+      <img src="images/sticker1.svg" class="sticker top-left" alt="" aria-hidden="true">
+      <img src="images/sticker1.svg" class="sticker bottom-right sway" alt="" aria-hidden="true">
+    </header>
+
+    
+    <div class="curve-down">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z" fill="#fff7f2"></path></svg>
+    </div>
+
+
+    <section id="featured" class="featured-section">
+      <div class="container">
+        <div class="row align-items-center gy-4">
+          <div class="col-lg-6 d-flex justify-content-center">
+            <div class="polaroid big tilt-left" id="mainPolaroid">
+              <img src="./portfolio pic.jpeg" alt="Portrait of artist">
+              <div class="polaroid-caption">Hi! I'am Xyryl Garce</div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <h2>Design & Creative Services</h2>
+            <p class="lead">My name is Xyryl, A Multimedia arts graduate offering services in Graphic Design, Illustration, Portrait Commisions, and Comics.
+                I also Produce and Direct my own stories as well as bring to life my concepts through 3d modelling. How may I be of service?.​</p>
+            <div class="mt-3">
+              <a class="btn btn-outline-dark me-2" href="#gallery">View Gallery</a>
+              <a class="btn btn-primary" href="#contact">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="tilt-row mt-4">
+          <div class="polaroid small tilt-small-1"><img src="./7.jpeg" alt=""></div>
+          <div class="polaroid small tilt-small-2"><img src="./6.jpeg" alt=""></div>
+          <div class="polaroid small tilt-small-1"><img src="./3.jpeg" alt=""></div>
+          <div class="polaroid small tilt-small-2"><img src="./5.jpeg" alt=""></div>
+        </div>
+      </div>
+    </section>
+
+    
+    <div class="curve-up">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path d="M0,120 C360,40 1080,200 1440,120 L1440,0 L0,0 Z" fill="#f8f2d9"></path></svg>
+    </div>
+
+    
+    <section class="container py-4" aria-label="Lovers Special">
+      <div class="text-center mb-3"><h1>Check Out Our Lover's Special</h3></div>
+      <div id="dropsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100 carousel-img rounded" src="./me basty landscape.jpeg" alt="Drop 1">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 carousel-img rounded" src="./Me basty the kiss.jpeg" alt="Drop 2">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100 carousel-img rounded" src="./me basty template.jpeg" alt="Drop 3">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#dropsCarousel" data-bs-slide="prev" aria-label="Previous slide">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#dropsCarousel" data-bs-slide="next" aria-label="Next slide">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </section>
+
+    
+    <div class="curve-down">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,0 C360,80 1080,0 1440,80 L1440,0 L0,0 Z" fill="#fff7f2"></path></svg>
+    </div>
+
+  
+    <section id="tiles" class="shop-grid">
+      <div class="container">
+        <div class="text-center mb-4"><h3>The Shop</h3><p class="text-muted">A selection of my services. Choose one that sparked your interest</p></div>
+        <div class="row g-4">
+          <div class="col-sm-6 col-md-4">
+            <div class="polaroid-card card-custom">
+              <img src="./LE9_Garce.jpg" class="card-img-top" alt="Marketing Needs">
+              <div class="card-body">
+                <h5 class="card-title">Advertisement Posters</h5>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="polaroid-card card-custom">
+              <img src="./Comic 2.jpeg" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">Comic Illustration</h5>
+                </div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-4">
+            <div class="polaroid-card card-custom">
+              <img src="./2.jpeg" class="card-img-top" alt="Portraits">
+              <div class="card-body">
+                <h5 class="card-title">Portraits</h5>
+              </div>
+            </div>
+          </div>
+
+        
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <div class="container">
+        <h4>Join our community for live updates</h4>
+        <div class="newsletter mt-3">
+          <input id="newsletterEmail" type="email" placeholder="Your email address" />
+          <button id="subscribeBtn" class="btn btn-dark">Subscribe</button>
+        </div>
+      </div>
+    </section>
+<section id="contact" style="background:#fff7f2; padding:60px 28px;">
+  <div class="container">
+    <h2 class="text-center mb-4">Get In Touch</h2>
+    <p class="text-center mb-5 text-muted">For inquiries, commissions, collaborations, or any creative needs.</p>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <form id="contactForm" class="p-4 rounded shadow" style="background:rgb(255, 246, 204);">
+          
+          <div class="mb-3">
+            <label class="form-label fw-bold">Full Name</label>
+            <input type="text" id="contactName" class="form-control" placeholder="Your Name">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Email</label>
+            <input type="email" id="contactEmail" class="form-control" placeholder="your@email.com">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">Message</label>
+            <textarea id="contactMessage" class="form-control" rows="5" placeholder="Write your message here..."></textarea>
+          </div>
+
+          <button type="button" id="sendMessage" class="btn btn-dark w-100 fw-bold">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <footer class="site-footer">
+      <div class="container text-center">
+        <strong>Xyryl Garce Creatives</strong>
+        <p class="text-muted mb-0">© 2025 All rights reserved</p>
+      </div>
+    </footer>
+
+  </div> 
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+  <script>
+    
+    document.querySelectorAll('a.nav-link, .nav-link, .brand, a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const href = this.getAttribute('href');
+        if(!href || !href.startsWith('#')) return;
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if(target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+ 
+    document.querySelectorAll('.polaroid').forEach(el=>{
+      el.addEventListener('mousemove', (e)=>{
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        el.style.transform = `perspective(800px) rotateY(${x * 8}deg) rotateX(${y * -8}deg) translateZ(6px)`;
+      });
+      el.addEventListener('mouseleave', ()=> el.style.transform = '');
+    });
+
+    
+    document.querySelectorAll('.sticker').forEach((s,i)=>{
+      if(i%2===0) s.classList.add('sway');
+      else s.classList.add('bounce');
+    });
+
+
+    const sub = document.getElementById('subscribeBtn');
+    if(sub){
+      sub.addEventListener('click', ()=>{
+        const email = document.getElementById('newsletterEmail').value || '';
+        if(!email.includes('@')) { alert('Please enter a valid email address'); return; }
+        alert('Thanks — demo subscription added');
+        document.getElementById('newsletterEmail').value='';
+      });
+    }
+
+    /
+    const car = document.querySelector('#dropsCarousel');
+    if(car){
+      const carousel = new bootstrap.Carousel(car, { interval: 4500, ride: 'carousel' });
+    }
+  </script>
+</body>
+</html>
